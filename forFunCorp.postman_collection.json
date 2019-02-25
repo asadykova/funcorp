@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "c30aebfe-e070-43b5-8289-6e769c6fb458",
+		"name": "forFunCorp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getPermissions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://example.com/calc/permissions?userId={{userId}}",
+					"protocol": "https",
+					"host": [
+						"example",
+						"com"
+					],
+					"path": [
+						"calc",
+						"permissions"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "{{userId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/calc/addition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "284075e2-65c0-4223-9bc6-abc29b014214",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Addition should be correct\", function() {",
+							"   let result = pm.response.json().result;",
+							"   let value1 = pm.environment.get(\"a\");",
+							"   let value2 = pm.environment.get(\"b\"); ",
+							"   pm.expect(result).to.eql(value1+value2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"a\": {{a}},\n\t\"b\": {{b}}\n}"
+				},
+				"url": {
+					"raw": "https://example.com/calc/addition",
+					"protocol": "https",
+					"host": [
+						"example",
+						"com"
+					],
+					"path": [
+						"calc",
+						"addition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/calc/subtraction",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "284075e2-65c0-4223-9bc6-abc29b014214",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Subtraction should be correct\", function() {",
+							"   let result = pm.response.json().result;",
+							"   let value1 = pm.environment.get(\"a\");",
+							"   let value2 = pm.environment.get(\"b\"); ",
+							"   pm.expect(Math.abs(result)).to.eql(Math.abs(value1-value2));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"a\": {{a}},\n\t\"b\": {{b}}\n}"
+				},
+				"url": {
+					"raw": "https://example.com/calc/addition",
+					"protocol": "https",
+					"host": [
+						"example",
+						"com"
+					],
+					"path": [
+						"calc",
+						"addition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/calc/multiplication",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "284075e2-65c0-4223-9bc6-abc29b014214",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Multiplication should be correct\", function() {",
+							"   let result = pm.response.json().result;",
+							"   let value1 = pm.environment.get(\"a\");",
+							"   let value2 = pm.environment.get(\"b\"); ",
+							"   pm.expect(result).to.eql(value1*value2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"a\": {{a}},\n\t\"b\": {{b}}\n}"
+				},
+				"url": {
+					"raw": "https://example.com/calc/addition",
+					"protocol": "https",
+					"host": [
+						"example",
+						"com"
+					],
+					"path": [
+						"calc",
+						"addition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/calc/division",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "284075e2-65c0-4223-9bc6-abc29b014214",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Addition should be correct\", function() {",
+							"   let result = pm.response.json().result;",
+							"   let value1 = pm.environment.get(\"a\");",
+							"   let value2 = pm.environment.get(\"b\"); ",
+							"   pm.expect(result).to.eql(value1/value2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"a\": {{a}},\n\t\"b\": {{b}}\n}"
+				},
+				"url": {
+					"raw": "https://example.com/calc/addition",
+					"protocol": "https",
+					"host": [
+						"example",
+						"com"
+					],
+					"path": [
+						"calc",
+						"addition"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
